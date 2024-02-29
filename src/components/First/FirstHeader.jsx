@@ -6,7 +6,9 @@ import Auth from './AuthModal/Auth';
 const FirstHeader = () => {
 
   const [isActive, setIsActive] = useState(false);
-  const [authModel, setAuthModel] = useState(false);
+  // const [authModel, setAuthModel] = useState(false);
+  const [modal, setModal] = useState(true);
+
 
   useEffect(() => {
     const scroll = () => {
@@ -34,10 +36,10 @@ const FirstHeader = () => {
           </div>
           <div className="relative">
             
-            <Auth modal={authModel} setModal={setAuthModel} />
+            <Auth modal={modal} setModal={setModal} />
     
           <button
-            // onClick={() => setAuthModel(true)}
+            onClick={() => setModal(true)}
             className={` text-white rounded-full px-3 p-2 text-sm font-medium
             ${isActive ?"bg-green-700" : "bg-black"}
             `}>
