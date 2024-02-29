@@ -6,8 +6,8 @@ import { nav } from '../../data'
 const HomeHeader = () => {
 
   const [isActive, setIsActive] = useState(false);
-  // const [authModel, setAuthModel] = useState(false);
-  // const [modal, setModal] = useState(true);
+  const [authModel, setAuthModel] = useState(false);
+  const [modal, setModal] = useState(true);
 
 
   useEffect(() => {

@@ -32,7 +32,7 @@ const FirstHeader = () => {
             {nav.map((link, i) => (
               <Link key={i} to={link.path}>
                 {link.title}
-                {/* <MdTypeSpecimen /> */}
+                <MdTypeSpecimen />
               </Link>
             ))}
           </div>
