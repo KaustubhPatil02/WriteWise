@@ -1,128 +1,16 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react'
+import React from "react";
+import Banner from "./Banner";
+// import Trending from "./Trending";
+// import Posts from "../Common/Posts/Posts";
+// import Discover from "./Discover";
 
-
-const First = () => {
+const Demo = () => {
   return (
     <>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
-    <div>First</div>
+      <Banner />
+      
     </>
-  )
-}
+  );
+};
 
-export default First
+export default Demo;

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { nav } from '../../data'
 import Auth from './AuthModal/Auth';
+import { MdTypeSpecimen } from "react-icons/md";
 const FirstHeader = () => {
 
   const [isActive, setIsActive] = useState(false);
@@ -27,10 +28,11 @@ const FirstHeader = () => {
           <h1 className='text-4xl font-bold'>MediumApp</h1>
         </Link>
         <div className="flex items-center gap-5">
-          <div className="hidden text-sm sm:flex items-center gap-5">
+          <div className="hidden text-sm sm:flex items-center gap-5 flex-col">
             {nav.map((link, i) => (
               <Link key={i} to={link.path}>
                 {link.title}
+                {/* <MdTypeSpecimen /> */}
               </Link>
             ))}
           </div>
