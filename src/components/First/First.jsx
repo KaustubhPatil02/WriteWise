@@ -1,7 +1,7 @@
 // eslint-disable-next-line no-unused-vars
 import React from "react";
 import Banner from "./Banner";
-import TrendingSection from "./TrendingSectiom";
+import TrendingSection from "./TrendingSection";
 import Posts from "../common_components/Posts/Posts";
 import DiscoverFilters from "./DiscoverFilters";
 // import Discover from "./Discover";
