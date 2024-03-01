@@ -3,9 +3,10 @@ import First from './components/First/First'
 import Home from './components/Home/Home'
 import HomeHeader from './components/Home/HomeHeader';
 import FirstHeader from './components/First/FirstHeader';
+import { Blog } from './Context/Context';
 
 function App() {
-  const curr_user = false;
+  const {curr_user} = Blog
   return (
     <>
     {curr_user ? <HomeHeader /> : <FirstHeader />}
