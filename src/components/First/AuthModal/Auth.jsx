@@ -1,5 +1,6 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from "react";
+import PropTypes from 'prop-types';
 import { useNavigate } from "react-router-dom";
 import { IoIosCloseCircle  } from "react-icons/io";
 import { FcGoogle } from "react-icons/fc";
@@ -13,23 +14,36 @@ import { doc, getDoc, setDoc } from "firebase/firestore";
 import {toast} from "react-toastify";
 import { signInWithPopup } from "firebase/auth";
 
+const Button = ({ icon, text, click }) => {
+    return (
+      <button
+        onClick={click}
+        className="flex items-center gap-10 sm:w-[20rem] border border-black
+        px-3 py-2 rounded-full">
+        {icon} {text}
+      </button>
+    );
+};
 
-// eslint-disable-next-line react/prop-types
+Button.propTypes = {
+  icon: PropTypes.element.isRequired,
+  text: PropTypes.string.isRequired,
+  click: PropTypes.func.isRequired,
+};
+
 const Auth = ({modal, setModal}) => {
     const [createUser, setCreateUser] = useState(false);
     const [sigReq, setSigReq] = useState("");
 
     const navigate = useNavigate();
 
-    const gooleAuth = async() =>{
+    const googleAuth = async() => {
       try {
         const  createUser = await signInWithPopup(auth, provider);
         const newUser = createUser.user;
         const ref = doc(db, "Users", newUser.uid); 
-        // collection name is Users
         const userDoc = await getDoc(ref);
 
-        // condition to check if user already exists
         if (!userDoc.exists()) {
           await setDoc(ref, {
             userId: newUser.userId,
@@ -41,6 +55,8 @@ const Auth = ({modal, setModal}) => {
           navigate("/")
           toast.success("User has been created successfully")
           setModal(false);
+        } else {
+          toast.info("User already exists");
         }
       } catch (error) {
         toast.error(error.message);
@@ -68,7 +84,7 @@ const Auth = ({modal, setModal}) => {
                   <h2 className="text-2xl pt-[5rem] ">{createUser ? "Join " : "Welcome Again!!!"}</h2>
                   <div className="flex flex-col gap-4 w-fit mx:auto">
                     <Button
-                      click={gooleAuth}
+                      click={googleAuth}
                       icon={<FcGoogle className="text-2xl" />}
                       text={"Continue with Google"} />
                     <Button
@@ -97,16 +113,9 @@ const Auth = ({modal, setModal}) => {
     );
 };
 
-export default Auth;
-
-// eslint-disable-next-line react/prop-types
-const Button = ({ icon, text, click }) => {
-    return (
-      <button
-        onClick={click}
-        className="flex items-center gap-10 sm:w-[20rem] border border-black
-        px-3 py-2 rounded-full">
-        {icon} {text}
-      </button>
-    );
+Auth.propTypes = {
+  modal: PropTypes.bool.isRequired,
+  setModal: PropTypes.func.isRequired,
 };
+
+export default Auth;
