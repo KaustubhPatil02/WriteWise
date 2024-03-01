@@ -39,24 +39,23 @@ const Auth = ({modal, setModal}) => {
 
     const googleAuth = async() => {
       try {
-        const  createUser = await signInWithPopup(auth, provider);
+        const createUser = await signInWithPopup(auth, provider);
         const newUser = createUser.user;
-        const ref = doc(db, "Users", newUser.uid); 
+  
+        const ref = doc(db, "users", newUser.uid);
         const userDoc = await getDoc(ref);
-
+  
         if (!userDoc.exists()) {
           await setDoc(ref, {
-            userId: newUser.userId,
-            displayName: newUser.displayName,
+            userId: newUser.uid,
+            username: newUser.displayName,
             email: newUser.email,
-            photoURL: newUser.photoURL,
+            userImg: newUser.photoURL,
             bio: "",
           });
-          navigate("/")
-          toast.success("User has been created successfully")
+          navigate("/");
+          toast.success("User have been Signed in");
           setModal(false);
-        } else {
-          toast.info("User already exists");
         }
       } catch (error) {
         toast.error(error.message);
