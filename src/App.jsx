@@ -4,6 +4,8 @@ import Home from './components/Home/Home'
 import HomeHeader from './components/Home/HomeHeader';
 import FirstHeader from './components/First/FirstHeader';
 import { Blog } from './Context/Context';
+import { ToastContainer } from 'react-toastify';
+
 
 function App() {
   const {currUser} = Blog();
@@ -11,6 +13,7 @@ function App() {
   return (
     <>
     {currUser ? <HomeHeader /> : <FirstHeader />}
+    <ToastContainer />
     <Routes>
      {currUser && <Route path="/" element={<Home />} />}
       {!currUser&&<Route path="first" element={<First />} />}

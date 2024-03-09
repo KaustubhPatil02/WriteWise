@@ -101,9 +101,9 @@ const Auth = ({modal, setModal}) => {
                   </p>
                 </>
               ) : sigReq === "sign-in" ? (
-                <SignIn setSigReq={setSigReq} />
-              ) : sigReq === "sign-up" ? (
-                <SignUp setSigReq={setSigReq} />
+                <SignIn  setModal={setModal} setSigReq={setSigReq} />
+              ) : sigReq  === "sign-up" ? (
+                <SignUp setModal={setModal} setSigReq={setSigReq} />
               ) : null}
             </>
           </div>
