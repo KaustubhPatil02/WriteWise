@@ -37,7 +37,7 @@ const Auth = ({modal, setModal}) => {
 
     const navigate = useNavigate();
 
-    const googleAuth = async() => {
+    const googleAuth = async () => {
       try {
         const createUser = await signInWithPopup(auth, provider);
         const newUser = createUser.user;
@@ -60,7 +60,7 @@ const Auth = ({modal, setModal}) => {
       } catch (error) {
         toast.error(error.message);
       }
-    }
+    };
 
     const hidden = modal ? "visible opacity-100" : "invisible opacity-0";
 

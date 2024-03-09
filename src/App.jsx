@@ -6,14 +6,15 @@ import FirstHeader from './components/First/FirstHeader';
 import { Blog } from './Context/Context';
 
 function App() {
-  const {curr_user} = Blog
+  const {currUser} = Blog();
+  // const auth = false
   return (
     <>
-    {curr_user ? <HomeHeader /> : <FirstHeader />}
+    {currUser ? <HomeHeader /> : <FirstHeader />}
     <Routes>
-     {curr_user && <Route path="/" element={<Home />} />}
-      {!curr_user&&<Route path="first" element={<First />} />}
-      <Route  path='*' element={<Navigate to={!curr_user ? "/First" : "/"} />} />
+     {currUser && <Route path="/" element={<Home />} />}
+      {!currUser&&<Route path="first" element={<First />} />}
+      <Route  path='*' element={<Navigate to={!currUser ? "/First" : "/"} />} />
     </Routes>
     
     </>

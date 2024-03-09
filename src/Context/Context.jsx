@@ -1,33 +1,31 @@
-// eslint-disable-next-line no-unused-vars
-import React, { createContext, useContext, useEffect, useState } from 'react'
 import { onAuthStateChanged } from 'firebase/auth';
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { auth } from '../firebaseConfig/firebase';
 
-const BlogContext = createContext()
-// eslint-disable-next-line react/prop-types
-const Context = ({ children }) => {
-  const [curr_user, setCurr_user] = useState(false);
+const BlogContext = createContext();
 
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, user => {
+const Context = ({ children }) => {
+  const [currUser, setCurrUser] = useState(false);
+
+  useEffect(() =>{
+    const unsubscribe =onAuthStateChanged(auth, (user) =>{
       if(user){
-        setCurr_user(user);
+        setCurrUser(user)
       }else{
-        setCurr_user(null);
+        setCurrUser(null)
       }
     });
-
-    // Cleanup subscription on unmount
     return () => unsubscribe();
-  }, [curr_user]); // Empty dependency array means this effect runs once on mount and cleanup on unmount
+  },[currUser]);
 
   return (
-    <BlogContext.Provider value={{curr_user, setCurr_user}}>
+    <BlogContext.Provider value={{ currUser, setCurrUser }}>
       {children}
-    </BlogContext.Provider> 
-  )
+    </BlogContext.Provider>
+  );
 };
 
-export default Context
 
+
+export default Context
 export const Blog = () => useContext(BlogContext);
