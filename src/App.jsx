@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import First from './components/First/First'
 import Home from './components/Home/Home'
-import HomeHeader from './components/Home/HomeHeader';
+import HomeHeader from './components/Home/Header_components/HomeHeader';
 import FirstHeader from './components/First/FirstHeader';
 import { Blog } from './Context/Context';
 import { ToastContainer } from 'react-toastify';
