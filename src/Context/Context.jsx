@@ -6,7 +6,7 @@ const BlogContext = createContext();
 
 const Context = ({ children }) => {
   const [currUser, setCurrUser] = useState(false);
-  const [Loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() =>{
     setLoading(true);
@@ -23,8 +23,8 @@ const Context = ({ children }) => {
 
   return (
     <BlogContext.Provider value={{ currUser, setCurrUser }}>
-      {/* {Loading ? <Loading /> : children } */}
-      {children }
+      {loading ? <Loading /> : children }
+      {/* {children } */}
     </BlogContext.Provider>
   );
 };

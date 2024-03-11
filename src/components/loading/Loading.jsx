@@ -2,7 +2,9 @@ import React from 'react'
 
 const Loading = () => {
   return (
-    <div>Loading</div>
+    <div className='fixed inset-0 grid place-items-center bg-white z-30'>
+      <img src="/public/loading.gif" alt="loadingbuffer" />
+    </div>
   )
 }
 

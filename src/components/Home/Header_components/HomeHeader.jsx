@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { CiSearch } from "react-icons/ci";
 import { LiaEditSolid } from "react-icons/lia";
 import { IoIosArrowDown } from "react-icons/io";
@@ -6,9 +6,12 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { db } from "../../../firebaseConfig/firebase";
 import SearchBlogs from './SearchBlogs';
-
+import Modal from "../../../utility/Modal"
+import UserModal from './UserModal';
 
 const HomeHeader = () => {
+  const [modal, setModal] = useState(false);
+
   return (
     <header className='border-b border-gray-400'>
       <div className='size h-[70px] flex justify-between items-center'>
@@ -32,6 +35,11 @@ const HomeHeader = () => {
             <span className='text-hray-600 cursor-pointer'>
               <IoIosArrowDown />
             </span>
+            <Modal modal={modal} setModal={setModal}>
+              <div>
+                <UserModal />
+              </div>
+            </Modal>
           </div>
         </div>
       </div>

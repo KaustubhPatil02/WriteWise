@@ -18,6 +18,8 @@ const SignUp = ({setSigReq, setModal}) => {
 
   });
 
+  const [loading, setLoading] = useState(false);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -29,6 +31,7 @@ const SignUp = ({setSigReq, setModal}) => {
       toast.error("Passwords do not match")
   }
   else{
+    setLoading(true);
     const {user} = await createUserWithEmailAndPassword(
       auth, form.email, form.password);
       const ref = doc(db, "users", user.uid);
@@ -46,7 +49,7 @@ const SignUp = ({setSigReq, setModal}) => {
         navigate("/");
         toast.success("New Account has been Created");
         setModal(false);
-        // setLoading(false);
+        setLoading(false);
       }
     }
   
@@ -63,8 +66,10 @@ const SignUp = ({setSigReq, setModal}) => {
             <Inputs form={form} setForm={setForm} type="email" title="email" placeholder="Enter your Email"/>
             <Inputs form={form} setForm={setForm} type="password" title="password" placeholder="Enter your passcord"/>
             <Inputs form={form} setForm={setForm} type="password" title="confirmPassword" placeholder="Confirm your passcord"/>
-            <button className='px-4 py-1 text-sm rounded-full bg-green-800
-            hover:bg-green-700 text-white w-fit mx-auto'>Sign Up</button>
+            <button className={`px-4 py-1 text-sm rounded-full bg-green-800
+            hover:bg-green-700 text-white w-fit mx-auto ${loading ? "opacity-40 pointer-events-none" : "" }`}>
+              Sign Up
+            </button>
         </form>
         <button 
        onClick={() => setSigReq("")}
