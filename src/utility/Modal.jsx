@@ -1,19 +1,18 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
 
-const Modal = ({ children, modal, setModal, hidden }) => {
-    return <>
-    <div
+const Modal = ({ children, modal, setModal }) => {
+  return (
+    <>
+      <div
         onClick={() => setModal(false)}
         className={`bg-white/50 fixed inset-0 z-10 
-      ${hidden} transition-all duration-500`}
+      ${
+        modal ? "visible opacity-100" : "invisible opacity-0"
+      } transition-all duration-500`}
       />
-      {children}</>
-};
-
-Modal.propTypes = {
-    children: PropTypes.node.isRequired
+      {children}
+    </>
+  );
 };
 
 export default Modal;

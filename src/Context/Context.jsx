@@ -1,9 +1,11 @@
 import { onAuthStateChanged } from 'firebase/auth';
+// eslint-disable-next-line no-unused-vars
 import React, { createContext, useContext, useEffect, useState } from 'react'
 import { auth } from '../firebaseConfig/firebase';
 import Loading from '../components/loading/Loading';
 const BlogContext = createContext();
 
+// eslint-disable-next-line react/prop-types
 const Context = ({ children }) => {
   const [currUser, setCurrUser] = useState(false);
   const [loading, setLoading] = useState(false);
