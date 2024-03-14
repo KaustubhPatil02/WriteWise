@@ -5,9 +5,11 @@ import { Blog } from '../../../Context/Context'
 import { Link } from 'react-router-dom';
 import { LiaEditSolid } from "react-icons/lia";
 import { secretMail } from '../../../utility/supporter';
-
+import { auth } from '../../../firebaseConfig/firebase';
+import { useNavigate } from 'react-router-dom';
 
 const UserModal = (setModal) => {
+  const navigate = useNavigate();
   const { currUser } = Blog();
   const UserModal = [
     {
@@ -17,6 +19,19 @@ const UserModal = (setModal) => {
       path: `/profile/${currUser?.uid}`,
     },
   ];
+
+  const handleSignOut = () => {
+    auth.signOut()
+      .then(() => {
+        // Signout successful
+        // You can perform any additional actions here, such as redirecting to a login page
+        navigate('/');
+      })
+      .catch((error) => {
+        // An error occurred during signout
+        console.log(error);
+      });
+  };
   return (
     <section className='absolute w-[18rem] p-6 bg-white right-0 top-[100%]
       shadows rounded-md z-50 text-gray-700'>
@@ -37,7 +52,10 @@ const UserModal = (setModal) => {
           </Link>
         ))}
         </div>
-        <button className='flex flex-col pt-5 cursor-pointer hover:text-black/70'>
+        <button 
+            className='flex flex-col pt-5 cursor-pointer hover:text-black/70'
+            onClick={handleSignOut}
+        >
           Sign Out
           <span className='text-sm'>{secretMail(currUser?.email)}</span>
         </button>

@@ -8,17 +8,26 @@ import { db } from "../../../firebaseConfig/firebase";
 import SearchBlogs from './SearchBlogs';
 import Modal from "../../../utility/Modal"
 import UserModal from './UserModal';
+import { Blog } from '../../../Context/Context';
+import Loading from '../../loading/Loading';
 
 const HomeHeader = () => {
+  const {allUsers, userLoading, currUser} = Blog();
+
+  
   const [modal, setModal] = useState(false);
   const [searchModal, setSearchModal] = useState(false);
+  
+  const getUsersData = allUsers.find((user) => user.id === currUser?.uid);
+
 
   return (
     <header className='border-b border-gray-400'>
+      {userLoading && <Loading/>}
       <div className='size h-[70px] flex justify-between items-center'>
         <div className='flex items-center gap-3'>
-          <span className='text-3xl'>
-            BlogApp
+          <span className='text-3xl'> BlogApp
+           {/* <img src="../../../assets/logo2.png" alt="" /> */}
           </span>
           <SearchBlogs modal={searchModal} setModal={setSearchModal} />
         </div>
@@ -38,27 +47,13 @@ const HomeHeader = () => {
             <img
               onClick={() => setModal(true)}
               className='w-10 h-10 rounded-full cursor-pointer object-cover'
-              src="../../../../src/assets/react.svg" alt="userprofile" />
+              src={getUsersData?.userImg ? getUsersData?.userImg : "/public/loading.gif"} alt="userprofile" 
+              />
             <span
               onClick={() => setModal(true)}
               className='text-hray-600 cursor-pointer'>
               <IoIosArrowDown />
-            </span>
-            {/* {modal && (
-              <Modal modal={modal} 
-                style={{ transition: 'all 500ms '}}
-                setModal={setModal}>
-                <UserModal />
-              </Modal>
-            )} */}
-            {/* {modal && (
-              <Modal modal={modal} setModal={setModal}>
-                <div className={`${modal ? "visible opacity-100" : "invisible opacity-0"} 
-                transition-all duration-700 cursor-pointer`}>
-                  <UserModal />
-                </div>
-              </Modal>
-            )} */}
+            </span>           
             <Modal modal={modal} setModal={setModal}>
               <div className={`${modal ? "visible opacity-100%" : "invisible opacity-0"}`}>
                 <UserModal setModal={setModal}/>

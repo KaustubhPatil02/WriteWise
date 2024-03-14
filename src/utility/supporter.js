@@ -4,7 +4,7 @@ export const secretMail = (email) =>{
     const[username, domain] = email.split('@');
     // const secret = username.slice(0, 3) + '...@' + domain;
     const secret = username.substring(0, 2) + "*".repeat(username.length - 2) + '@' + domain;
-    console.log(secret);
+    // console.log(secret);
     // console.log(email)
     return `${secret}`
 }
