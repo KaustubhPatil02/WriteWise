@@ -14,10 +14,12 @@ import Loading from '../../loading/Loading';
 const HomeHeader = () => {
   const {allUsers, userLoading, currUser} = Blog();
 
+
   
   const [modal, setModal] = useState(false);
   const [searchModal, setSearchModal] = useState(false);
-  
+  const {pathname} = useLocation();
+  console.log(pathname);
   const getUsersData = allUsers.find((user) => user.id === currUser?.uid);
 
 
@@ -37,17 +39,21 @@ const HomeHeader = () => {
             className='text-3xl text-gray-400 flex sm:hidden cursor-pointer'>
             <CiSearch />
           </span>
+         {pathname === "/write" ? (
+          <button className='btn bg-green-700 text-white rounded-full px-2 py-1 item-center'>Push</button>
+         ): (
           <Link to="/write" className='hidden md:flex items-center gap-1 text-gray-600'>
-            <span className='text-xl'>
-              <LiaEditSolid />
-            </span>
-            <span className='mt-0 text-sm'>Write & publish</span>
-          </Link>
+          <span className='text-xl'>
+            <LiaEditSolid />
+          </span>
+          <span className='mt-0 text-sm'>Write & publish</span>
+        </Link>
+         )}
           <div className='flex items-center relative'>
             <img
               onClick={() => setModal(true)}
               className='w-10 h-10 rounded-full cursor-pointer object-cover'
-              src={getUsersData?.userImg ? getUsersData?.userImg : "/public/loading.gif"} alt="userprofile" 
+              src={getUsersData?.userImg ? getUsersData?.userImg : "/loading.gif"} alt="userprofile" 
               />
             <span
               onClick={() => setModal(true)}
