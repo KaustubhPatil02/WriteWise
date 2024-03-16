@@ -12,7 +12,7 @@ import { Blog } from '../../../Context/Context';
 import Loading from '../../loading/Loading';
 
 const HomeHeader = () => {
-  const {allUsers, userLoading, currUser} = Blog();
+  const {allUsers, userLoading, currUser, setPublish} = Blog();
 
 
   
@@ -40,7 +40,9 @@ const HomeHeader = () => {
             <CiSearch />
           </span>
          {pathname === "/write" ? (
-          <button className='btn bg-green-700 text-white rounded-full px-2 py-1 item-center'>Push</button>
+          <button
+          onClick={()=> setPublish(true)} 
+          className='btn bg-green-700 text-white rounded-full px-2 py-1 item-center'>Publish</button>
          ): (
           <Link to="/write" className='hidden md:flex items-center gap-1 text-gray-600'>
           <span className='text-xl'>
