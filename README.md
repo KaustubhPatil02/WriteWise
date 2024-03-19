@@ -8,7 +8,6 @@ This Project gives a intermediate level knowledge of how to use use firebase in 
 Features:
 - CRUD Post
 - User Profile ✅
-- CRUD Comment
 - Authentication ✅
 - Search Post
 - Filter Post
