@@ -28,7 +28,7 @@ const HomeHeader = () => {
       {userLoading && <Loading/>}
       <div className='size h-[70px] flex justify-between items-center'>
         <div className='flex items-center gap-3'>
-          <span className='text-3xl'> BlogApp
+          <span className='text-3xl'> WriteWise
            {/* <img src="../../../assets/logo2.png" alt="" /> */}
           </span>
           <SearchBlogs modal={searchModal} setModal={setSearchModal} />

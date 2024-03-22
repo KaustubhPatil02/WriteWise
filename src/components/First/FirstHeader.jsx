@@ -25,7 +25,7 @@ const FirstHeader = () => {
     transition-all duration-500`}>
       <div className='size h-[70px] flex items-center justify-between'>
         <Link to={"/"}>
-          <h1 className='text-4xl font-bold'>BlogApp</h1>
+          <h1 className='text-4xl font-bold'>WriteWise</h1>
         </Link>
         <div className="flex items-center gap-5">
           <div className="hidden text-sm sm:flex items-center gap-5 flex-col">
