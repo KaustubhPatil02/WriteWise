@@ -13,8 +13,8 @@ Features:
 - Filter Post
 ```
 ### Tech Stack:
-```
-Frontend: ReactJS for a performant and interactive user interface.
-Styling: Tailwind CSS for rapid UI development and a consistent design language.
-Backend: Firebase for a scalable and secure foundation, offering features like user authentication and data storage.
-```
+
+- Frontend: ReactJS for a performant and interactive user interface.
+- Styling: Tailwind CSS for rapid UI development and a consistent design language.
+- Backend: Firebase for a scalable and secure foundation, offering features like user authentication and data storage.
+
