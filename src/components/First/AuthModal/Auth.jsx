@@ -71,7 +71,7 @@ const Auth = ({modal, setModal}) => {
     return (
       <Modal modal={modal} setModal={setModal} hidden={hidden}>
         <section
-          className={`z-50 fixed top-0 bottom-0 left-0 md:left-[10rem] overflow-auto right-0 md:right-[10rem] bg-white shadows transition-all duration-500 ${hidden}`}
+          className={`z-50 fixed top-0 bottom-0 left-0 md:left-[10rem] overflow-auto right-0 md:right-[10rem] bg-blue-400 shadows transition-all duration-500 ${hidden}`}
         >
           <button onClick={closeModal} className="absolute top-8 right-8 text-3xl hover:opacity-50">
             <IoIosCloseCircle />
