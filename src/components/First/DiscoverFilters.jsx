@@ -3,7 +3,7 @@ import { discover } from '../../data'
 
 const DiscoverFilters = () => {
   return (
-    <div className='sticky t-[6rem]'>
+    <div className='sticky top-[6rem]'>
         <div className='border-b border-gray-400 pb-4'>
             <h2 className='font-semibold'>Discover what matters to you </h2>
             <div className='my-2 flex items-center gap-1 flex-wrap'>{discover.map((item, i) => (

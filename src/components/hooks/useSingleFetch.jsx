@@ -1,7 +1,8 @@
 import { collection, onSnapshot, query } from 'firebase/firestore';
 import React, { useEffect, useState } from 'react'
+import { db } from '../../firebaseConfig/firebase';
 
-const useSingleFetch = () => {
+const useSingleFetch = (collectionName) => {
     const [data, setData] = useState("");
     const [loading, setLoading] = useState(true);
         useEffect(() =>{

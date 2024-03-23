@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { toast } from "react-toastify";
 import { BsFillSave2Fill } from "react-icons/bs";
-import { Blog } from "../../../Context/Context";
+import { Blog } from "../../../../Context/Context";
 import { deleteDoc, doc, setDoc } from 'firebase/firestore';
-import { db } from '../../../firebaseConfig/firebase';
-import useSingleFetch from '../../hooks/useSingleFetch';
+import useSingleFetch from '../../../hooks/useSingleFetch';
+import { db } from '../../../../firebaseConfig/firebase';
 
-const SavedPosts = (post) => {
+const SavedPosts = ({post}) => {
     const [saved, setSaved] = useState(false);
-    // const {data, loading} = useSingleFetch("users");    
+    const {data, loading} = useSingleFetch("users");    
     const { currUser } = Blog();
 
     const handleSaved = async () => {
@@ -23,7 +23,7 @@ const SavedPosts = (post) => {
                     );
                     // if post is already saved, delete it
                 if (saved) {
-                    await deleteDoc(saveRef);
+                    await deleteDoc(saveRef)
                     toast.success("Post removed from saved posts");
                 } else {
                     await setDoc(saveRef, {
@@ -46,7 +46,7 @@ const SavedPosts = (post) => {
            ${saved ? "text-yellow-500" : ""}
            `} />
 
-            <span>Save this post</span>
+            {/* <span>Save this post</span> */}
         </button>
     )
 }
