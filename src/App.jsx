@@ -7,6 +7,7 @@ import { Blog } from './Context/Context';
 import { ToastContainer } from 'react-toastify';
 import Profile from './components/Home/UserProfile/Profile';
 import Write from './components/Home/WritePost/Write';
+import SinglePostView from './components/common_components/Posts/SinglePostView';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       {/* to get userid for diff profiles dynamically */}
       <Route path='/profile/:userId' element={<Profile />}/>
       <Route path='/write' element={<Write />} />
+      <Route path='/post/:postId' element={<SinglePostView />} />
       <Route  path='*' element={<Navigate to={!currUser ? "/First" : "/"} />} />
     </Routes>
     
