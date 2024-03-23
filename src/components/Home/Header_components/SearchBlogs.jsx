@@ -16,8 +16,8 @@ const SearchBlogs = ({modal, setModal}) => {
           <span className='text-2xl text-gray-500'>
             <IoIosSearch />
           </span>
-          <input className='bg-transparent outline-none py-[0.4rem] text-sm w-full'
-          type="text" placeholder='Search Blogs' 
+          <input className='bg-transparent outline-none py-[0.4rem] text-sm w-[20rem]'
+          type="text" placeholder='Search WriteWise Blog for Posts' 
            />
         </div>
       </div>
