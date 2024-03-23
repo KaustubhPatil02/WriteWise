@@ -6,7 +6,10 @@ This Project gives a intermediate level knowledge of how to use use firebase in 
 ### Things implemented so far !
 ```
 Features:
-- CRUD Post
+- Create a Post ✅
+- Read a Post ✅
+- Update
+- Delete 
 - User Profile ✅
 - Authentication ✅
 - Search Post
