@@ -17,5 +17,5 @@ export const readTime = (desc) =>{
 
     const textContext = div.textContent || div.innerHTML;
     const words = textContext.trim().split(/\s+/).length;
-    return Math.ceil(words.length / avgReadTime);
+    return Math.ceil(words / avgReadTime);
 }
