@@ -19,7 +19,7 @@ const HomeHeader = () => {
   const [modal, setModal] = useState(false);
   const [searchModal, setSearchModal] = useState(false);
   const {pathname} = useLocation();
-  console.log(pathname);
+  // console.log(pathname);
   const getUsersData = allUsers.find((user) => user.id === currUser?.uid);
 
 

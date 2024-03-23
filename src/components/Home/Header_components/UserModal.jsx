@@ -29,7 +29,7 @@ const UserModal = (setModal) => {
       })
       .catch((error) => {
         // An error occurred during signout
-        console.log(error);
+        // console.log(error);
       });
   };
   return (

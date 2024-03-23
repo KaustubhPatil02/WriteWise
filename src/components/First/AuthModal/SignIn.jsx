@@ -19,7 +19,7 @@ const SignIn = ({ setSigReq }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(form);
+    // console.log(form);
     if (form["email", "password"] === "") {
       toast.error("Please enter valid email and password")
     }
