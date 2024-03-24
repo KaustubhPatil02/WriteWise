@@ -21,7 +21,10 @@ const [loading, setLoading] = useState(true);
         getUsers();
         
       },[])
-  return {data, loading}
+  return {
+    data, 
+    loading
+  }
 }
 
 export default useFetch
