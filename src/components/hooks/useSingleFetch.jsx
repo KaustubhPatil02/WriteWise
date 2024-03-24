@@ -7,7 +7,11 @@ const useSingleFetch = (collectionName, id, subCol) => {
     const [loading, setLoading] = useState(true);
         useEffect(() =>{
             const getSingleData =()=>{
+<<<<<<< HEAD
               const postRef= query(collection(db, collectionName, id, subCol));
+=======
+              const postRef= query(collection(db, collectionName,id, subCol));
+>>>>>>> f41157cea75a2ac075724db8cfab6deea8fc3586
               onSnapshot(postRef, (snapshot) =>{
                 setData(
                   snapshot.docs.map((doc) => ({
@@ -20,8 +24,16 @@ const useSingleFetch = (collectionName, id, subCol) => {
             };
             getSingleData();
             
+<<<<<<< HEAD
           },[]);
       return {data, loading}
+=======
+          },[])
+      return {
+        data, 
+        loading,
+      }
+>>>>>>> f41157cea75a2ac075724db8cfab6deea8fc3586
 }
 
 export default useSingleFetch
